@@ -51,9 +51,24 @@ function createOptionFromRoomData(roomData) {
 }
 
 function addBooking() {
-	clientId = $('#clients_menu').val();
+
+    clientId = $('#clients_menu').val();
 	roomId = $('#rooms_menu').val();
 	startDate = $('input[name=start]').val();
-	endDate = $('input[name=end]').val();
-	return false;
+    endDate = $('input[name=end]').val();
+    
+    $.post(
+        'http://localhost/hotel/server/bookings.php',
+        {
+            client_id: clientId,
+            room_id: roomId,
+            start: startDate,
+            end: endDate
+        },
+        function(responseData) {
+            console.log(responseData);
+        }
+    );
+
+    return false;
 }
