@@ -10,6 +10,8 @@ function run() {
     	'http://localhost/hotel/server/rooms.php',
     	parseRoomsData
     );
+
+    $('#booking_form').submit(addBooking);
 }
 
 function parseRoomsData(roomsList) {
@@ -46,4 +48,12 @@ function createOptionFromRoomData(roomData) {
 	option.text(roomData.type + ' ' + roomData.price);
 
 	return option;
+}
+
+function addBooking() {
+	clientId = $('#clients_menu').val();
+	roomId = $('#rooms_menu').val();
+	startDate = $('input[name=start]').val();
+	endDate = $('input[name=end]').val();
+	return false;
 }
