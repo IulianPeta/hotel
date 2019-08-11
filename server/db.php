@@ -9,5 +9,5 @@
 	// 	print_r($row);
 	// }
 
-	print_r($result->fetch_all('MYSQLI_ASSOC'));
+	print_r($result->fetch_all(MYSQLI_ASSOC));
 ?>
